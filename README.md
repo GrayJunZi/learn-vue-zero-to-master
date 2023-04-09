@@ -278,7 +278,7 @@ data() {
 </ul>
 ```
 
-## 三、Vue实例
+## 三、Vue 实例
 
 ### 1.生命周期(Lifecycle)
 
@@ -333,3 +333,83 @@ vm.component("hello", {
 ```html
 <hello />
 ```
+
+## 四、构建工具
+
+- Vite
+- ESLint
+- Webpack
+- PostCSS
+- SASS
+
+### 1.Vite
+
+Vite 将所有东西整合在一起，它是 JavaScript 生态系统的最新软件包之一。
+
+Vite 是应用程序的模块打包工具
+
+创建 Vite 项目
+
+```bash
+npm create vite@latest
+```
+
+运行项目
+
+```bash
+npm run dev
+```
+
+构建项目
+
+```bash
+npm run build
+```
+
+预览项目
+
+```bash
+npm run preview
+```
+
+### 2.SASS
+
+SASS 是为了扩展 CSS 的编程语言，可以定义函数遍、历数组数据等。但浏览器不支持，所以需要将 SASS 编译成 CSS 文件。
+
+安装 sass
+
+```bash
+npm install sass
+```
+
+### 3.PostCSS
+
+安装第三方插件
+
+[PostCSS插件](https://postcss.parts)
+
+```bash
+npm install autoprefixer --save-dev
+```
+
+创建 `postcss.config.cjs` 文件来启用 PostCSS
+
+```js
+module.exports = {
+  plugins: [require("autoprefixer")],
+};
+```
+
+### 4.ESLint
+
+ESLint用以确保我们编写的JavaScript代码的质量。
+
+[ESLint](https://eslint.org)
+
+安装 `eslint`
+```bash
+npm install eslint --save-dev
+npm install vite-plugin-eslint --save-dev
+```
+
+创建 `vite.config.js` 文件
