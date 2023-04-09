@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueJS Course</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <p>{{ fullName }}</p>
+      <p><a v-bind:href="url">必应</a></p>
+      <p>{{ raw_url }}</p>
+      <p>{{ age }}</p>
+
+      <labe>First Name</labe>
+      <input type="text" v-model="firstName" />
+
+      <labe>Last Name</labe>
+      <input type="text" :value="lastName" @input="updateLastName" />
+      <input
+        type="text"
+        :value="lastName"
+        @input="updateLastNameLog('Last Name event triggered!', $event)"
+      />
+
+      <labe>Age</labe>
+      <input type="text" v-model.number="age" />
+
+      <button type="button" v-on:click="increment">Increment</button>
+      <button type="button" @click="age--">Decrement</button>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
