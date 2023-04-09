@@ -386,7 +386,7 @@ npm install sass
 
 安装第三方插件
 
-[PostCSS插件](https://postcss.parts)
+[PostCSS 插件](https://postcss.parts)
 
 ```bash
 npm install autoprefixer --save-dev
@@ -402,14 +402,103 @@ module.exports = {
 
 ### 4.ESLint
 
-ESLint用以确保我们编写的JavaScript代码的质量。
+ESLint 用以确保我们编写的 JavaScript 代码的质量。
 
 [ESLint](https://eslint.org)
 
 安装 `eslint`
+
 ```bash
 npm install eslint --save-dev
 npm install vite-plugin-eslint --save-dev
 ```
 
 创建 `vite.config.js` 文件
+
+```js
+import { defineConfig } from "vite";
+import eslint from "vite-plugin-eslint";
+
+export default defineConfig({
+  plugins: [eslint()],
+});
+```
+
+## 四、Vue 项目
+
+### 1.创建 Vue 项目
+
+```bash
+npm init vue@latest
+```
+
+> 在 VSCode 中安装 `Volar` 插件来高亮显示 vue 代码。
+
+### 2.添加 sass
+
+```bash
+npm install sass --save-dev
+```
+
+### 3.Props
+
+用于组件中通信的方式。
+
+### 4.Emitting Events
+
+通过 `emit` 来出发事件
+
+### 5. 验证 Props
+
+```js
+props: {
+    age: {
+        // 类型
+        type: Number,
+        // 是否为必填项
+        required: true,
+        // 默认值
+        default: 20,
+        // 自定义验证器
+        validator(value) {
+            return value < 130
+        }
+    }
+},
+```
+
+### 6.插槽(Slot)
+
+创建项目
+```js
+npm init vue@latest
+npm install
+```
+
+使用 `slot` 标签来标记插槽位置
+```html
+<div>
+  <slot name="title"></slot>
+</div>
+```
+
+使用 `v-slot` 指定插槽
+```html
+<template v-slot:help>
+  <p>This is some help text.</p>
+</template>
+```
+
+### 7.动态组件(Dynamic Components)
+
+创建项目
+```bash
+npm init vue@latest
+```
+
+使用 `component` 标签来指定加载的组件，使用 `keep-alive` 保持组件的活跃状态。
+```html
+<keep-alive>
+  <component :is="componentName"></component>
+</keep-alive>
+```
