@@ -14,7 +14,7 @@
 
 随着 Vue3 的发布引入了 Composition API，这是构建视图的不同方式。本课程两种方式都会使用。
 
-## 二、第二部分
+## 二、基础
 
 - 加载 Vue
 - 创建 Vue 新实例
@@ -276,4 +276,60 @@ data() {
     </div>
   </li>
 </ul>
+```
+
+## 三、Vue实例
+
+### 1.生命周期(Lifecycle)
+
+生命周期使我们能够在某个时候运行代码。
+
+将 Vue 实例插入到文档中的过程被称为 `mounting` 装载，表示视图已经挂载。
+
+1. `Vue.createApp().mount()` - 创建实例
+2. `beforeCreate` - 创建实例之前的钩子函数
+3. 初始化 `data` 和 `methods`
+4. `created` - 实例创建完成的钩子函数
+5. `beforeMount` - 渲染视图之前的钩子函数
+6. 编译模板
+7. `mounted` - 视图渲染完成的钩子函数
+
+### 2.虚拟 DOM(Virtual DOM)
+
+虚拟 DOM 是一个 JavaScript 对象，它是实际 DOM 的轻量级副本，每当数据发生变化时，虚拟 DOM 也会更新。虚拟 DOM 更新后会与实际 DOM 同步。
+
+### 3.模板
+
+```js
+let vm = Vue.createApp({
+  data() {
+    return {
+      message: " Hello World !",
+    };
+  },
+  template: `{{message}}`,
+});
+
+vm.mount("#app");
+```
+
+### 4.组件
+
+创建组件
+
+```js
+vm.component("hello", {
+  template: `<h1>{{ message }}</h1>`,
+  data() {
+    return {
+      message: "HELLO WORLD!",
+    };
+  },
+});
+```
+
+使用组件
+
+```html
+<hello />
 ```
