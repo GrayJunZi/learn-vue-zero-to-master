@@ -502,3 +502,44 @@ npm init vue@latest
   <component :is="componentName"></component>
 </keep-alive>
 ```
+
+## 五、实战项目 Music
+
+### 1. 创建项目
+```bash
+npm init vue@latest
+
+Vue.js - The Progressive JavaScript Framework
+
+√ Project name: ... music
+√ Add TypeScript? ... No / Yes
+√ Add JSX Support? ... No / Yes
+√ Add Vue Router for Single Page Application development? ... No / Yes
+√ Add Pinia for state management? ... No / Yes
+√ Add Vitest for Unit Testing? ... No / Yes
+√ Add an End-to-End Testing Solution? » Cypress
+√ Add ESLint for code quality? ... No / Yes
+√ Add Prettier for code formatting? ... No / Yes
+```
+
+### 2. 项目结构说明
+
+- `.eslintrc.cjs` 此文件包含 ESLint 的配置。
+- `.cypress.config.js` - Cypress 是一种用于对应用程序执行测试的工具。
+
+### 3. Tailwind
+
+`Tailwind` 是一个能够快速构建站点的CSS框架。
+
+安装 tailwind
+```bash
+npm i -D tailwindcss postcss autoprefixer
+# 创建配置文件
+npx tailwindcss init -p
+```
+
+### 4. 状态管理 (Pinia)
+
+```bash
+npm install pinia
+```
