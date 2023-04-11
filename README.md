@@ -543,3 +543,17 @@ npx tailwindcss init -p
 ```bash
 npm install pinia
 ```
+
+### 5. 表单验证
+
+表单验证是检查用户输入的格式是否正确的过程。
+
+安装 `VeeValidate`
+```bash
+npm i vee-validate
+```
+
+安装验证规则
+```bash
+npm install @vee-validate/rules
+```
