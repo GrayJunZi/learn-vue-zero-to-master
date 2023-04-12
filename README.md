@@ -557,3 +557,22 @@ npm i vee-validate
 ```bash
 npm install @vee-validate/rules
 ```
+
+### 6.Stores
+
+用于存储一些全局数据
+
+### 7.Actions
+
+- 可用于所有组件。
+ -可以是异步的。
+- 可以提交多个 `mutations`。
+
+如果更改影响存储/状态，则在操作中定义逻辑。
+
+### 8. JSON Web Token(JWT)
+
+- 用于存储数据的编码字符串。
+- 数字签名
+
+[jwt.io](https://jwt.io)
