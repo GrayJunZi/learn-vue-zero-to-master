@@ -576,3 +576,11 @@ npm install @vee-validate/rules
 - 数字签名
 
 [jwt.io](https://jwt.io)
+
+### 9. 路由
+
+- RouterView
+- RouterLink
+- 命名路由
+- catchAll 404页面处理
+- 路由守卫 - 指的是在呈现组件之前对请求执行检查的能力
