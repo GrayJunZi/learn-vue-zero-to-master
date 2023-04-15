@@ -95,4 +95,43 @@ const auth = {
   }
 }
 
-export { userCollection, auth }
+const songCollection = {
+  name: 'songs',
+  add: (song) => {
+    if (!song.docID) {
+      song.docID = +new Date()
+    }
+
+    let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
+    songs = songs.filter((x) => x.docID !== song.docID)
+    songs.push(song)
+    localStorage.setItem(songCollection.name, JSON.stringify(songs))
+  },
+  set: (values) => {
+    if (!values.docID) {
+      values.docID = +new Date()
+    }
+
+    let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
+    let song = songs.find((x) => x.docID == values.docID)
+    for (let value in values) {
+      song[value] = values[value]
+    }
+    songs = songs.filter((x) => x.docID !== values.docID)
+    songs.push(song)
+    localStorage.setItem(songCollection.name, JSON.stringify(songs))
+  },
+  getSonsByUID: (uid) => {
+    let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
+    songs = songs.filter((x) => x.uid === uid)
+    return songs
+  },
+  removeByName: (name) => {
+    let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
+    console.log(songs)
+    songs = songs.filter((x) => x.modified_name !== name)
+    localStorage.setItem(songCollection.name, JSON.stringify(songs))
+  }
+}
+
+export { userCollection, songCollection, auth }

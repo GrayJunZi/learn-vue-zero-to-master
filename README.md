@@ -584,3 +584,5 @@ npm install @vee-validate/rules
 - 命名路由
 - catchAll 404页面处理
 - 路由守卫 - 指的是在呈现组件之前对请求执行检查的能力
+
+### 10.上传文件
