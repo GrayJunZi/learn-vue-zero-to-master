@@ -628,3 +628,14 @@ npm install howler
 ```bash
 npm install vue-i18n@9
 ```
+
+## 六、什么是渐进式Web应用程序
+
+- Progressive web app 是一个术语，用于描述浏览器中的一组功能和应用程序。
+- PWA功能可以在非单页应用的网站上实现
+
+```bash
+npm i vite-plugin-pwa -D
+```
+
+Manifest 文件配置
