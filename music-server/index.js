@@ -30,7 +30,7 @@ app.post("/api/upload", uploader.single("file"), (req, res) => {
   res.json({
     originalname: req.file.originalname,
     filename: req.file.filename,
-    url: req.file.path,
+    url: `http://${req.headers.host}//upload//${req.file.filename}`,
   });
 });
 

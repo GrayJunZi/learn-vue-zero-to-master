@@ -31,7 +31,7 @@ const routes = [
   },
   {
     name: 'song',
-    path: '/song',
+    path: '/song/:id',
     component: Song
   },
   {

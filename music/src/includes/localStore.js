@@ -121,6 +121,12 @@ const songCollection = {
     songs.push(song)
     localStorage.setItem(songCollection.name, JSON.stringify(songs))
   },
+  get() {
+    return new Promise((resolve) => {
+      let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
+      resolve(songs)
+    })
+  },
   getSonsByUID: (uid) => {
     let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
     songs = songs.filter((x) => x.uid === uid)
@@ -128,10 +134,32 @@ const songCollection = {
   },
   removeByName: (name) => {
     let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
-    console.log(songs)
     songs = songs.filter((x) => x.modified_name !== name)
     localStorage.setItem(songCollection.name, JSON.stringify(songs))
+  },
+  getSongByDocID(docID) {
+    let songs = JSON.parse(localStorage.getItem(songCollection.name)) || []
+    let song = songs.find((x) => x.docID == docID)
+    return song
   }
 }
 
-export { userCollection, songCollection, auth }
+const commentCollection = {
+  set: (comment) => {
+    if (!comment.cID) {
+      comment.cID = +new Date()
+    }
+
+    let comments = JSON.parse(localStorage.getItem('comments')) || []
+    comments = comments.filter((x) => x.cID !== comment.cID)
+    comments.push(comment)
+    localStorage.setItem('comments', JSON.stringify(comments))
+  },
+  getCommentsBySID: (sid) => {
+    let comments = JSON.parse(localStorage.getItem('comments')) || []
+    comments = comments.filter((x) => x.sid === sid)
+    return comments
+  }
+}
+
+export { auth, userCollection, songCollection, commentCollection }
