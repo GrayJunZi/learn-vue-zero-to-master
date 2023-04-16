@@ -1,0 +1,15 @@
+{
+    "home":{
+        "listen": "听好听的音乐!"
+    },
+    "song":{
+        "comment_count":"无评论 | 1 条评论 | {count} 条评论"
+    },
+    "register":{
+        "accept":"我同意音乐 {0}",
+        "tos":"服务与条款"
+    },
+    "manage":{
+        "my_songs":"我的音乐"
+    }
+}

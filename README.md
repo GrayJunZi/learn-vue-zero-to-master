@@ -470,12 +470,14 @@ props: {
 ### 6.插槽(Slot)
 
 创建项目
+
 ```js
 npm init vue@latest
 npm install
 ```
 
 使用 `slot` 标签来标记插槽位置
+
 ```html
 <div>
   <slot name="title"></slot>
@@ -483,6 +485,7 @@ npm install
 ```
 
 使用 `v-slot` 指定插槽
+
 ```html
 <template v-slot:help>
   <p>This is some help text.</p>
@@ -492,11 +495,13 @@ npm install
 ### 7.动态组件(Dynamic Components)
 
 创建项目
+
 ```bash
 npm init vue@latest
 ```
 
 使用 `component` 标签来指定加载的组件，使用 `keep-alive` 保持组件的活跃状态。
+
 ```html
 <keep-alive>
   <component :is="componentName"></component>
@@ -506,6 +511,7 @@ npm init vue@latest
 ## 五、实战项目 Music
 
 ### 1. 创建项目
+
 ```bash
 npm init vue@latest
 
@@ -529,9 +535,10 @@ Vue.js - The Progressive JavaScript Framework
 
 ### 3. Tailwind
 
-`Tailwind` 是一个能够快速构建站点的CSS框架。
+`Tailwind` 是一个能够快速构建站点的 CSS 框架。
 
 安装 tailwind
+
 ```bash
 npm i -D tailwindcss postcss autoprefixer
 # 创建配置文件
@@ -549,11 +556,13 @@ npm install pinia
 表单验证是检查用户输入的格式是否正确的过程。
 
 安装 `VeeValidate`
+
 ```bash
 npm i vee-validate
 ```
 
 安装验证规则
+
 ```bash
 npm install @vee-validate/rules
 ```
@@ -564,8 +573,7 @@ npm install @vee-validate/rules
 
 ### 7.Actions
 
-- 可用于所有组件。
- -可以是异步的。
+- 可用于所有组件。 -可以是异步的。
 - 可以提交多个 `mutations`。
 
 如果更改影响存储/状态，则在操作中定义逻辑。
@@ -582,7 +590,7 @@ npm install @vee-validate/rules
 - RouterView
 - RouterLink
 - 命名路由
-- catchAll 404页面处理
+- catchAll 404 页面处理
 - 路由守卫 - 指的是在呈现组件之前对请求执行检查的能力
 
 ### 10.上传文件
@@ -595,14 +603,17 @@ npm install @vee-validate/rules
 2. 播放歌曲。
 3. 切换播放/暂停
 4. 将歌曲信息呈现到播放器上
-  - 持续时间/当前时间
-  - 歌曲名称
-  - 艺术家
+
+- 持续时间/当前时间
+- 歌曲名称
+- 艺术家
+
 5. 跟踪歌曲的当前进程
 6. 允许用户拖动洗涤器
 7. 暂停播放完后的歌曲
 
 - Howler.js
+
 ```bash
 npm install howler
 ```
@@ -611,3 +622,9 @@ npm install howler
 
 - arg
 - modifier
+
+### 14. 国际化(i18n)
+
+```bash
+npm install vue-i18n@9
+```
