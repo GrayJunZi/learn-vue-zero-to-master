@@ -639,3 +639,26 @@ npm i vite-plugin-pwa -D
 ```
 
 Manifest 文件配置
+
+PrograssBase
+```bash
+npm install nprogress
+```
+
+Rollup Visualizer
+```bash
+npm i -D rollup-plugin-visualizer
+```
+
+Vercel
+```bash
+npm i -g vercel
+```
+
+```bash
+vercel login
+```
+
+```bash
+vercel
+```
