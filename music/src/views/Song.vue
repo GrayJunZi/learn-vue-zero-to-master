@@ -6,7 +6,9 @@
                 style="background-image: url(/assets/img/song-header.png)"></div>
             <div class="container mx-auto flex items-center">
                 <!-- Play/Pause Button -->
-                <button type="button" class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none"
+                <button 
+                id="play.btn"
+                type="button" class="z-50 h-24 w-24 text-3xl bg-white text-black rounded-full focus:outline-none"
                     @click.prevent="newSong(song)">
                     <i class="fas fa-play"></i>
                 </button>

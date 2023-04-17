@@ -662,3 +662,34 @@ vercel login
 ```bash
 vercel
 ```
+
+## 七、测试
+
+测试是检查应用程序是否按预期运行的过程。
+
+测试的两种类型：
+- 手动测试
+- 自动测试
+
+测试的方式：
+- 单元测试(Unit Tests)
+  - 测试应用程序的较小部分。一样的功能或组件
+- 快照测试(Snapshot Tests)
+- 端到端测试(End-to-End)
+  - 一种测试类型，用于检查应用程序从开始到结束的流程是否运行正常。
+
+### Vitest
+
+Vite 官方提供的测试工具，其他选择有 Mocha、Jasmine、Jest等。
+
+- 为什么使用测试框架？
+  1. 生成测试报告。
+  2. 帮助组织测试。
+  3. 带有用于性能测试的功能。
+
+安装Vitest UI
+```bash
+npm i -D @vitest/ui
+```
+
+`spec` 是 规范 `specification` 的缩写。
