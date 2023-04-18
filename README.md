@@ -629,10 +629,10 @@ npm install howler
 npm install vue-i18n@9
 ```
 
-## 六、什么是渐进式Web应用程序
+## 六、什么是渐进式 Web 应用程序
 
 - Progressive web app 是一个术语，用于描述浏览器中的一组功能和应用程序。
-- PWA功能可以在非单页应用的网站上实现
+- PWA 功能可以在非单页应用的网站上实现
 
 ```bash
 npm i vite-plugin-pwa -D
@@ -641,16 +641,19 @@ npm i vite-plugin-pwa -D
 Manifest 文件配置
 
 PrograssBase
+
 ```bash
 npm install nprogress
 ```
 
 Rollup Visualizer
+
 ```bash
 npm i -D rollup-plugin-visualizer
 ```
 
 Vercel
+
 ```bash
 npm i -g vercel
 ```
@@ -668,10 +671,12 @@ vercel
 测试是检查应用程序是否按预期运行的过程。
 
 测试的两种类型：
+
 - 手动测试
 - 自动测试
 
 测试的方式：
+
 - 单元测试(Unit Tests)
   - 测试应用程序的较小部分。一样的功能或组件
 - 快照测试(Snapshot Tests)
@@ -680,16 +685,113 @@ vercel
 
 ### Vitest
 
-Vite 官方提供的测试工具，其他选择有 Mocha、Jasmine、Jest等。
+Vite 官方提供的测试工具，其他选择有 Mocha、Jasmine、Jest 等。
 
 - 为什么使用测试框架？
   1. 生成测试报告。
   2. 帮助组织测试。
   3. 带有用于性能测试的功能。
 
-安装Vitest UI
+安装 Vitest UI
+
 ```bash
 npm i -D @vitest/ui
 ```
 
 `spec` 是 规范 `specification` 的缩写。
+
+## 八、Composition API
+
+- Composition API 不能提高性能。
+- Composition API 不能提高安全。
+- Composition API 不能代替 Options API。
+
+### 优点
+
+- Composition API 提供了更好的 TypeScript 的支持。
+- Composition API 适合开发大型组件。
+- Composition API 提供了更好的可重用性。
+
+### Mixins
+
+Mixins 是一种为 Vue 组件分配可重用功能的灵活方式。
+
+> 使用 mixins 的时候 实例中的数据与方法依旧拥有优先权。
+
+### Reactivity
+
+Reactivity 是更新模板的过程，每当数据发生变化时，数据对象中的属性都是 Reactivity 的。
+
+将变量包装一层`ref` 或 `reactive` 用于将变量转为具有反应性的。
+
+```js
+import { ref, reactive, toRefs, watchEffect, watch, computed } from "vue";
+export default {
+  name: "App",
+  setup() {
+    let num = ref(0);
+
+    const increment = () => {
+      num.value++;
+    };
+
+    const double = computed(() => {
+      return num.value * 2;
+    });
+
+    const user = reactive({
+      name: "John",
+      age: 20,
+    });
+
+    setTimeout(() => {
+      user.name = "Luis";
+    }, 3000);
+
+    const phrase = ref("");
+    const reversedPhrase = ref("");
+    const reversedPhrase2 = ref("");
+
+    watchEffect(() => {
+      reversedPhrase.value = phrase.value.split("").reverse().join("");
+    });
+
+    watch([phrase], ([newValue, oldValue]) => {
+      reversedPhrase2.value = newValue.split("").reverse().join();
+    });
+
+    return {
+      num,
+      increment,
+      double,
+      user,
+      ...toRefs(user),
+      phrase,
+      reversedPhrase,
+      reversedPhrase2,
+    };
+  },
+};
+```
+
+- `ref()` - 适用于原始值，例如字符串、数字、布尔等。
+- `reactive()` - 适用于对象类型数据。
+- `toRefs()` - 保留反应性
+- `watchEffect()` - 用于监视数据变化
+- `watch()` - 用于监视数据变化
+- `computed()` - 计算数据方法
+- `isRef()` - 验证是否为ref
+- `isReactive()` - 验证是否为reactive
+
+### 生命周期函数(Lifecycle Functions)
+
+- onBeforeMount()
+- onMounted()
+- onBeforeUpdate()
+- onUpdated()
+- beforeDestroy()
+- destroyed()
+- onActivated()
+- onDeactivated()
+
+> Composition API 不支持 `beforeCreate()` 和 `created()` 函数。这是因为`setup()`函数在 `beforeCreate()` 之后并在`created`函数执行之前运行。
