@@ -795,3 +795,11 @@ export default {
 - onDeactivated()
 
 > Composition API 不支持 `beforeCreate()` 和 `created()` 函数。这是因为`setup()`函数在 `beforeCreate()` 之后并在`created`函数执行之前运行。
+
+## 九、组件设计模式(Component Design Patterns)
+
+### 受控组件(Controlled Components)
+
+```bash
+npm i @joeattardi/emoji-button
+```
